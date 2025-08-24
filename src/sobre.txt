@@ -1,0 +1,3 @@
+O Escalonador Simples foi feito com o objetivo de demonstrar de forma basica o  funcionamento dos algoritmos de escalonamento dos tipos FIFO  (First-In,  First-Out) e SJF (Shortest Job First), totalmente programado em C++.
+
+Criado por Christian Silva.
