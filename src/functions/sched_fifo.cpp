@@ -57,7 +57,7 @@ void schedFIFO(const vector<Processo>& v_Processos) {
 			while (iTempoRestante >= 0) 
 			{
 				cout << "Executando processo: " << v_Processos[e].sNome << '\n';
-				cout << "Tempo para finalizar: " << iTempoRestante;
+				cout << "Tempo para finalizar: " << iTempoRestante << endl;
 				iTempoRestante--;		
 				sleep_for(seconds(1));	
 				clscreen();			
@@ -76,3 +76,4 @@ void schedFIFO(const vector<Processo>& v_Processos) {
     	schedMainMenu();
 		
 }
+
