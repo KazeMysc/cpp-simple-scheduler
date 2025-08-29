@@ -53,7 +53,7 @@ void schedMainMenu() {
 		break;
 		
 		case 2: //SJF
-			system("cls");
+			clscreen();
 			cout << "Digite o numero de processos: ";
 			cin >> iQtdProcessos;
 				if (iQtdProcessos > 0) {
@@ -166,3 +166,4 @@ int schedAboutMenuEN() {
     schedMainMenu();
     return 0;
 }
+
