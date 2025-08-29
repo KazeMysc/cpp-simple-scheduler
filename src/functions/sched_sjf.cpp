@@ -4,6 +4,7 @@
 #include <vector>
 #include <thread>
 #include <chrono>
+#include "../utils/scr_utils.h"
 #include "processo.h"		//pra classe
 #include "sched_fifo.h" 	//pro vetor
 #include "menus.h"
@@ -21,26 +22,26 @@ void schedSJF(vector<Processo>& v_Processos) {
 	
 	cout << "Lendo processos." << endl;
 	sleep_for(seconds(1));
-	system("cls");
+	clscreen();
 	cout << "Lendo processos.." << endl;
 	sleep_for(seconds(1));
-	system("cls");
+	clscreen();
 	cout << "Lendo processos..." << endl;
 	sleep_for(seconds(1));
 	
 	cout << "Selecionando processo mais curto. (menor Unidade de Tempo)" << endl;
 	sleep_for(seconds(1));
-	system("cls");
+	clscreen();
 	cout << "Selecionando processo mais curto.. (menor Unidade de Tempo)" << endl;
 	sleep_for(seconds(2));
-	system("cls");
+	clscreen();
 	
 	cout << "Iniciando menor processo.." << endl;
 	sleep_for(seconds(1));
-	system("cls");
+	clscreen();
 	cout << "Iniciando menor processo..." << endl;
 	sleep_for(seconds(2));
-	system("cls");
+	clscreen();
 	cout << "Fila de processos: " << endl;
 	
 	int iNumProcesso = 1;
@@ -56,7 +57,7 @@ void schedSJF(vector<Processo>& v_Processos) {
 		{
 			cout << "Chamando menor processo: " << v_Processos[e].sNome << '\n';
 			sleep_for(seconds(3));
-			system("cls");
+			clscreen();
 			
 			int iTempoRestante = v_Processos[e].iUnidadeTempo;				
 			while (iTempoRestante >= 0) 
@@ -65,18 +66,18 @@ void schedSJF(vector<Processo>& v_Processos) {
 				cout << "Tempo para finalizar: " << iTempoRestante;
 				iTempoRestante--;		
 				sleep_for(seconds(1));	
-				system("cls");				
+				clscreen();				
 			}
 			
 			cout << "Processo " << v_Processos[e].sNome << " terminou de rodar.\n";
        	 	sleep_for(seconds(3));
-        	system("cls");
+        	clscreen();
 		}
 		cout << "Sem mais processos a serem executados." << endl;
 		//quando qtd de processos acabar, finaliza o programa
 		
 		//retorna pro menu principal quando pressionar qualquer tecla
-		system("pause");
-    	system("cls");
+    	waitscreen();
+    	clscreen();
     	schedMainMenu();
 }
