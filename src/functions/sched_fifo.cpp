@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <thread>
 #include <chrono>
+#include "../utils/scr_utils.h"
 #include "sched_fifo.h"
 #include "menus.h"
 using namespace std;
@@ -14,7 +15,7 @@ vector<Processo> schedProcessDefine(int iQtdProcessos) {
 	
 	vector<Processo> v_Processos(iQtdProcessos); //tam. qtd processos
 	
-	system("cls");
+	clscreen();
 	
 	for (int i = 0; i < iQtdProcessos; i++)  //pede nome e ut dos processos (qtdprocessos)
 	{
@@ -27,7 +28,7 @@ vector<Processo> schedProcessDefine(int iQtdProcessos) {
 		cin >> v_Processos[i].iUnidadeTempo;
 	} // loop pra armazenar nas classes o nome do processo e a ut
 
-	system("cls");	
+	clscreen();
 	
 	for (const auto& pr : v_Processos) //exibe nome e ut dos processos
 	{
@@ -36,7 +37,7 @@ vector<Processo> schedProcessDefine(int iQtdProcessos) {
 	}
 	
 	sleep_for(seconds(3));
-	system("cls");
+	clscreen();
 	
 	return v_Processos; // retorna o vetor pra usar no FIFO e no SJF
 }
@@ -50,7 +51,7 @@ void schedFIFO(const vector<Processo>& v_Processos) {
 		{
 			cout << "Chamando processo: " << v_Processos[e].sNome << '\n';
 			sleep_for(seconds(3));
-			system("cls");
+			clscreen();
 			
 			int iTempoRestante = v_Processos[e].iUnidadeTempo;				
 			while (iTempoRestante >= 0) 
@@ -59,19 +60,19 @@ void schedFIFO(const vector<Processo>& v_Processos) {
 				cout << "Tempo para finalizar: " << iTempoRestante;
 				iTempoRestante--;		
 				sleep_for(seconds(1));	
-				system("cls");				
+				clscreen();			
 			}
 			
 			cout << "Processo " << v_Processos[e].sNome << " terminou de rodar.\n";
        	 	sleep_for(seconds(3));
-        	system("cls");
+        	clscreen();
 		}
 		cout << "Sem mais processos a serem executados." << endl; 
 		//quando qtd de processos acabar, finaliza o programa
 		
 		//retorna pro menu principal quando pressionar qualquer tecla
-		system("pause");
-    	system("cls");
+    	waitscreen();
+    	clscreen();
     	schedMainMenu();
 		
 }
