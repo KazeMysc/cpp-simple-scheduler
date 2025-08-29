@@ -4,6 +4,7 @@
 #include <chrono>
 #include <fstream>
 #include <string>
+#include "../utils/scr_utils.h" //clscreen
 #include "sched_fifo.h"
 #include "sched_sjf.h"
 #include "processo.h"
@@ -39,7 +40,7 @@ void schedMainMenu() {
 	
 	switch (iInput) {
 		case 1: //FIFO
-			system("cls");
+			clscreen();
 			cout << "Digite o numero de processos: ";
 			cin >> iQtdProcessos;
 				if (iQtdProcessos > 0) {
@@ -65,7 +66,7 @@ void schedMainMenu() {
 		break;
 		
 		case 3: //SOBRE
-			system("cls");
+			clscreen();
 			schedAboutLang();
 		break;
 		
@@ -94,12 +95,12 @@ void schedAboutLang() {
 	
 	switch (iInput) {
 		case 1:
-			system("cls");
+			clscreen();
 			schedAboutMenuBR();
 		break;
 		
 		case 2:
-			system("cls");
+			clscreen();
 			schedAboutMenuEN();
 		break;
 	}	
@@ -130,8 +131,8 @@ int schedAboutMenuBR() {
 	
 	cout << endl;
     sobre.close();
-    system("pause");
-    system("cls");
+    waitscreen();
+    clscreen();
     schedMainMenu();
     return 0;
 }
@@ -160,8 +161,8 @@ int schedAboutMenuEN() {
 	
 	cout << endl;
     sobre.close();
-    system("pause");
-    system("cls");
+    waitscreen();
+    clscreen();
     schedMainMenu();
     return 0;
 }
